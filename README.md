@@ -38,8 +38,8 @@ Tbilisi, Georgia · Remote preferred · [Email](mailto:atomaltera@gmail.com) ·
   most of the code.
 
 ### Pulserio AG · LeadRebel — Lead Software Engineer · May 2020 – Apr 2025
-- Built LeadRebel, a B2B lead-generation SaaS, from scratch and ran it for five
-  years as the only engineer in a two-person team; later acquired by Leadinfo.
+- Built LeadRebel, a B2B lead-generation SaaS, from scratch and led its
+  development for five years; later acquired by Leadinfo.
 - Covered the whole stack: tracking script, event pipeline, search, analytics,
   admin tools, integrations, deployment.
 - The event pipeline handled up to 1M events/minute and ~100k tracked visitors

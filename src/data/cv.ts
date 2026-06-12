@@ -156,7 +156,7 @@ export const cv: CV = {
           role: 'Lead Software Engineer',
           period: 'May 2020 — Apr 2025',
           bullets: [
-            'Built LeadRebel, a B2B lead-generation SaaS, from scratch and ran it for five years as the only engineer in a two-person team; later acquired by Leadinfo.',
+            'Built LeadRebel, a B2B lead-generation SaaS, from scratch and led its development for five years; later acquired by Leadinfo.',
             'Covered the whole stack: tracking script, event pipeline, search, analytics, admin tools, integrations, deployment.',
             'The event pipeline handled up to 1M events/minute and ~100k tracked visitors a day.',
           ],
@@ -255,7 +255,7 @@ export const cv: CV = {
           role: 'Lead Software Engineer',
           period: 'Май 2020 — Апрель 2025',
           bullets: [
-            'Построил LeadRebel, B2B SaaS для генерации лидов, с нуля и пять лет развивал его как единственный инженер в команде из двух человек; позже продукт купила Leadinfo.',
+            'Построил LeadRebel, B2B SaaS для генерации лидов, с нуля и пять лет руководил его разработкой; позже продукт купила Leadinfo.',
             'Закрывал весь стек: скрипт трекинга, пайплайн событий, поиск, аналитику, админку, интеграции, деплой.',
             'Пайплайн событий держал до 1 млн событий в минуту и ~100 тыс. посетителей в день.',
           ],
