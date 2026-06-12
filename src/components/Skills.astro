@@ -1,0 +1,23 @@
+---
+import type { SkillGroup } from '../data/cv';
+
+interface Props {
+  groups: SkillGroup[];
+}
+const { groups } = Astro.props;
+---
+
+<div class="skills">
+  {
+    groups.map((g) => (
+      <div class="skill-group">
+        <span class="skill-group-label">{g.label}</span>
+        <span class="skill-group-items">
+          {g.items.map((it) => (
+            <span class="skill-line">{it}</span>
+          ))}
+        </span>
+      </div>
+    ))
+  }
+</div>

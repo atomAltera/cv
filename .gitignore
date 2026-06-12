@@ -1,0 +1,10 @@
+.idea
+.vscode
+
+# build / deps
+node_modules/
+dist/
+.astro/
+
+# os
+.DS_Store

@@ -1,0 +1,96 @@
+---
+import Section from './Section.astro';
+import Experience from './Experience.astro';
+import Skills from './Skills.astro';
+import Contact from './Contact.astro';
+import type { LocalizedCV, Contact as ContactType } from '../data/cv';
+
+interface Props {
+  cv: LocalizedCV;
+  contact: ContactType;
+  altLang: { code: string; label: string; href: string };
+  printLabel: string;
+}
+const { cv, contact, altLang, printLabel } = Astro.props;
+---
+
+<article class="cv">
+  <header class="head">
+    <div class="head-main">
+      <h1 class="name">{cv.name}</h1>
+      <p class="role">{cv.role}</p>
+      <p class="headline-detail">{cv.headlineDetail}</p>
+      <p class="loc">{cv.location} · {cv.availability}</p>
+    </div>
+    <div class="head-actions">
+      <button
+        class="action action-icon"
+        type="button"
+        onclick="window.print()"
+        aria-label={printLabel}
+        title={printLabel}
+      >
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="7 10 12 15 17 10" />
+          <line x1="12" y1="15" x2="12" y2="3" />
+        </svg>
+      </button>
+      <a class="lang" href={altLang.href} hreflang={altLang.code}>{altLang.label}</a>
+    </div>
+  </header>
+
+  <p class="summary">{cv.summary}</p>
+
+  <Section label={cv.labels.skills}>
+    <Skills groups={cv.skills} />
+  </Section>
+
+  <Section label={cv.labels.experience}>
+    {cv.experience.map((e) => <Experience item={e} />)}
+  </Section>
+
+  <Section label={cv.labels.languages}>
+    <div class="skills">
+      {
+        cv.languages.map((l) => (
+          <div class="skill-group">
+            <span class="skill-group-label">{l.name}</span>
+            <span class="skill-group-items">{l.level}</span>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
+
+  <Section label={cv.labels.education}>
+    {
+      cv.education.map((ed) => (
+        <div class="edu">
+          <span class="edu-school">{ed.school}</span>
+          <span class="edu-meta">
+            {ed.field} · {ed.year}
+          </span>
+        </div>
+      ))
+    }
+  </Section>
+
+  <Section label={cv.labels.openTo}>
+    <p class="opento">{cv.openTo.join(' · ')}</p>
+  </Section>
+
+  <Section label={cv.labels.contact}>
+    <Contact contact={contact} labels={cv.contactLabels} />
+  </Section>
+</article>

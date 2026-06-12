@@ -1,0 +1,10 @@
+---
+interface Props {
+  skills: string[];
+}
+const { skills } = Astro.props;
+---
+
+<ul class="tags">
+  {skills.map((s) => <li class="tag">{s}</li>)}
+</ul>

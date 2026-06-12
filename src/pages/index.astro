@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import CV from '../components/CV.astro';
+import { cv } from '../data/cv';
+---
+
+<Base lang="en" title={cv.meta.en.title} description={cv.meta.en.description}>
+  <CV
+    cv={cv.locales.en}
+    contact={cv.contact}
+    altLang={{ code: 'ru', label: 'RU', href: '/ru/' }}
+    printLabel="Save as PDF"
+  />
+</Base>

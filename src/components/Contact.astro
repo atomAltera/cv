@@ -1,0 +1,76 @@
+---
+import type { Contact, ContactLabels } from '../data/cv';
+
+interface Props {
+  contact: Contact;
+  labels: ContactLabels;
+}
+const { contact, labels } = Astro.props;
+
+// Build-time base64 obfuscation: the plaintext email/phone/telegram never
+// appear in the static HTML — only base64 in data-* attributes. A tiny client
+// script decodes them on load. Keeps scrapers/spam bots from harvesting them.
+const enc = (s: string) => Buffer.from(s).toString('base64');
+
+const obfuscated = [
+  {
+    label: labels.email,
+    v: enc(contact.email),
+    h: enc('mailto:' + contact.email),
+  },
+  {
+    label: labels.phone,
+    v: enc(contact.phone),
+    h: enc('tel:' + contact.phone.replace(/[\s-]/g, '')),
+  },
+  {
+    label: labels.telegram,
+    v: enc('@' + contact.telegram),
+    h: enc('https://t.me/' + contact.telegram),
+  },
+];
+
+// GitHub and LinkedIn are public profile links — no need to hide them.
+const publicLinks = [
+  { label: labels.github, href: contact.github },
+  { label: labels.linkedin, href: contact.linkedin },
+].map((l) => ({ ...l, value: l.href.replace(/^https?:\/\/(www\.)?/, '') }));
+---
+
+<ul class="contacts">
+  {
+    obfuscated.map((c) => (
+      <li>
+        <span class="c-label">{c.label}</span>
+        <a class="c-link" data-v={c.v} data-h={c.h} href="#" rel="nofollow">
+          <span class="c-val">…</span>
+        </a>
+      </li>
+    ))
+  }
+  {
+    publicLinks.map((l) => (
+      <li>
+        <span class="c-label">{l.label}</span>
+        <a class="c-link" href={l.href} target="_blank" rel="noopener noreferrer">
+          {l.value}
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<script>
+  // Decode obfuscated contacts in the browser.
+  const decode = (s: string) => atob(s);
+
+  document
+    .querySelectorAll<HTMLAnchorElement>('a.c-link[data-h]')
+    .forEach((a) => {
+      const h = a.getAttribute('data-h');
+      const v = a.getAttribute('data-v');
+      if (h) a.setAttribute('href', decode(h));
+      const valEl = a.querySelector('.c-val');
+      if (v && valEl) valEl.textContent = decode(v);
+    });
+</script>

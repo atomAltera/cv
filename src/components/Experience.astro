@@ -1,0 +1,20 @@
+---
+import type { ExperienceItem } from '../data/cv';
+
+interface Props {
+  item: ExperienceItem;
+}
+const { item } = Astro.props;
+---
+
+<div class="exp">
+  <div class="exp-period">{item.period}</div>
+  <div class="exp-body">
+    <h3 class="exp-role">
+      {item.role}<span class="exp-company"> · {item.company}</span>
+    </h3>
+    <ul class="exp-points">
+      {item.bullets.map((b) => <li>{b}</li>)}
+    </ul>
+  </div>
+</div>
