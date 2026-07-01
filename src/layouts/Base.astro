@@ -16,6 +16,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const alternates = [
   { hreflang: 'en', href: new URL('/', Astro.site).href },
   { hreflang: 'ru', href: new URL('/ru/', Astro.site).href },
+  { hreflang: 'ka', href: new URL('/ka/', Astro.site).href },
   { hreflang: 'x-default', href: new URL('/', Astro.site).href },
 ];
 ---
@@ -35,7 +36,10 @@ const alternates = [
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:locale" content={lang === 'ru' ? 'ru_RU' : 'en_US'} />
+    <meta
+      property="og:locale"
+      content={lang === 'ru' ? 'ru_RU' : lang === 'ka' ? 'ka_GE' : 'en_US'}
+    />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />

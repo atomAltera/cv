@@ -5,10 +5,5 @@ import { cv } from '../data/cv';
 ---
 
 <Base lang="en" title={cv.meta.en.title} description={cv.meta.en.description}>
-  <CV
-    cv={cv.locales.en}
-    contact={cv.contact}
-    altLang={{ code: 'ru', label: 'RU', href: '/ru/' }}
-    printLabel="Save as PDF"
-  />
+  <CV cv={cv.locales.en} contact={cv.contact} lang="en" printLabel="Save as PDF" />
 </Base>

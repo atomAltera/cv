@@ -1,0 +1,9 @@
+---
+import Base from '../../layouts/Base.astro';
+import CV from '../../components/CV.astro';
+import { cv } from '../../data/cv';
+---
+
+<Base lang="ka" title={cv.meta.ka.title} description={cv.meta.ka.description}>
+  <CV cv={cv.locales.ka} contact={cv.contact} lang="ka" printLabel="შენახვა PDF-ში" />
+</Base>

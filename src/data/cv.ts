@@ -5,7 +5,10 @@
 export interface ExperienceItem {
   company: string;
   role: string;
-  period: string;
+  from: string; // localized display, e.g. "May 2020"
+  to: string; // localized display, e.g. "Apr 2025"
+  fromISO: string; // machine-readable, e.g. "2020-05"
+  toISO: string; // machine-readable, e.g. "2025-04"
   bullets: string[];
 }
 
@@ -73,8 +76,8 @@ export interface Meta {
 
 export interface CV {
   contact: Contact;
-  meta: { en: Meta; ru: Meta };
-  locales: { en: LocalizedCV; ru: LocalizedCV };
+  meta: { en: Meta; ru: Meta; ka: Meta };
+  locales: { en: LocalizedCV; ru: LocalizedCV; ka: LocalizedCV };
 }
 
 export const cv: CV = {
@@ -96,6 +99,11 @@ export const cv: CV = {
       title: 'Константин Алиханов — Senior Full-stack / Product Engineer',
       description:
         'Константин Алиханов — Senior Full-stack / Product Engineer, Тбилиси, удалённо. 14 лет опыта: Go, бэкенд-архитектура, высоконагруженные системы.',
+    },
+    ka: {
+      title: 'კონსტანტინე ალიხანოვი — Senior Full-stack / Product Engineer',
+      description:
+        'კონსტანტინე ალიხანოვი — Senior Full-stack / Product Engineer, თბილისი, დისტანციურად. 14 წლის გამოცდილება: Go, ბექენდ-არქიტექტურა, მაღალდატვირთული სისტემები.',
     },
   },
 
@@ -145,7 +153,10 @@ export const cv: CV = {
         {
           company: 'Banyan AI',
           role: 'Co-Founder & CTO',
-          period: 'Jul 2025 — Apr 2026',
+          from: 'Jul 2025',
+          to: 'Apr 2026',
+          fromISO: '2025-07',
+          toISO: '2026-04',
           bullets: [
             'Built an AI automation product for small businesses: backend services, LLM-based workflows, integrations with business tools.',
             'Ran the technical side — architecture, infrastructure, deployment — and wrote most of the code.',
@@ -154,7 +165,10 @@ export const cv: CV = {
         {
           company: 'Pulserio AG · LeadRebel',
           role: 'Lead Software Engineer',
-          period: 'May 2020 — Apr 2025',
+          from: 'May 2020',
+          to: 'Apr 2025',
+          fromISO: '2020-05',
+          toISO: '2025-04',
           bullets: [
             'Built LeadRebel, a B2B lead-generation SaaS, from scratch and led its development for five years; later acquired by Leadinfo.',
             'Covered the whole stack: tracking script, event pipeline, search, analytics, admin tools, integrations, deployment.',
@@ -164,7 +178,10 @@ export const cv: CV = {
         {
           company: 'App3null GmbH',
           role: 'Web Developer',
-          period: 'Oct 2016 — May 2020',
+          from: 'Oct 2016',
+          to: 'May 2020',
+          fromISO: '2016-10',
+          toISO: '2020-05',
           bullets: [
             'Developed the web part of an order-management platform for a Volkswagen contractor that grew into a multi-company SaaS.',
             'Owned the core business logic: order upload, dispatching, search, status tracking, contractor workflows.',
@@ -173,7 +190,10 @@ export const cv: CV = {
         {
           company: 'Business Software Consulting',
           role: '.NET Developer',
-          period: 'Dec 2011 — Sep 2016',
+          from: 'Dec 2011',
+          to: 'Sep 2016',
+          fromISO: '2011-12',
+          toISO: '2016-09',
           bullets: [
             'Built a POS system for retail and restaurants, from requirements to rollout and support.',
             'Worked on ERP and integration tools for clients including SOLO / Bank of Georgia and Tegeta Motors.',
@@ -244,7 +264,10 @@ export const cv: CV = {
         {
           company: 'Banyan AI',
           role: 'Co-Founder & CTO',
-          period: 'Июль 2025 — Апрель 2026',
+          from: 'Июль 2025',
+          to: 'Апрель 2026',
+          fromISO: '2025-07',
+          toISO: '2026-04',
           bullets: [
             'Делал продукт AI-автоматизации для малого бизнеса: бэкенд-сервисы, сценарии на основе LLM, интеграции с бизнес-инструментами.',
             'Отвечал за техническую сторону — архитектуру, инфраструктуру, деплой — и писал большую часть кода.',
@@ -253,7 +276,10 @@ export const cv: CV = {
         {
           company: 'Pulserio AG · LeadRebel',
           role: 'Lead Software Engineer',
-          period: 'Май 2020 — Апрель 2025',
+          from: 'Май 2020',
+          to: 'Апрель 2025',
+          fromISO: '2020-05',
+          toISO: '2025-04',
           bullets: [
             'Построил LeadRebel, B2B SaaS для генерации лидов, с нуля и пять лет руководил его разработкой; позже продукт купила Leadinfo.',
             'Закрывал весь стек: скрипт трекинга, пайплайн событий, поиск, аналитику, админку, интеграции, деплой.',
@@ -263,7 +289,10 @@ export const cv: CV = {
         {
           company: 'App3null GmbH',
           role: 'Web-разработчик',
-          period: 'Октябрь 2016 — Май 2020',
+          from: 'Октябрь 2016',
+          to: 'Май 2020',
+          fromISO: '2016-10',
+          toISO: '2020-05',
           bullets: [
             'Разрабатывал веб-часть платформы управления заказами для подрядчика Volkswagen, которая выросла в SaaS для нескольких компаний.',
             'Отвечал за основную бизнес-логику: загрузку заказов, распределение, поиск, статусы, работу подрядчиков.',
@@ -272,7 +301,10 @@ export const cv: CV = {
         {
           company: 'Business Software Consulting',
           role: '.NET-разработчик',
-          period: 'Декабрь 2011 — Сентябрь 2016',
+          from: 'Декабрь 2011',
+          to: 'Сентябрь 2016',
+          fromISO: '2011-12',
+          toISO: '2016-09',
           bullets: [
             'Построил POS-систему для розницы и ресторанов — от требований до внедрения и поддержки.',
             'Разрабатывал ERP и интеграционные инструменты для клиентов, среди которых SOLO / Bank of Georgia и Tegeta Motors.',
@@ -293,6 +325,117 @@ export const cv: CV = {
         {
           school: 'Грузинский технический университет',
           field: 'Программирование',
+          year: '2014',
+        },
+      ],
+    },
+
+    ka: {
+      name: 'კონსტანტინე ალიხანოვი',
+      role: 'Senior Full-stack / Product Engineer',
+      headlineDetail: 'Go · ბექენდ-არქიტექტურა · სრული პროდუქტი',
+      location: 'თბილისი, საქართველო',
+      availability: 'სასურველია დისტანციური',
+      summary:
+        'ფულსტეკ-ინჟინერი 14-წლიანი გამოცდილებით, ძირითადად მცირე გუნდებში, სადაც პროდუქტზე თავიდან ბოლომდე ვიყავი პასუხისმგებელი — საცალო POS-სისტემიდან B2B SaaS-მდე, რომელიც მოგვიანებით შეიძინეს. ძირითადი სტეკი: Go, TypeScript, MongoDB. თავისუფლად ვმუშაობ მაღალ დატვირთვასთან, ლეგასი-კოდთან და პროდაქშენში დებაგინგთან.',
+      labels: {
+        skills: 'უნარები',
+        experience: 'გამოცდილება',
+        languages: 'ენები',
+        education: 'განათლება',
+        openTo: 'განვიხილავ',
+        contact: 'კონტაქტი',
+      },
+      contactLabels: {
+        email: 'ელფოსტა',
+        phone: 'ტელეფონი',
+        telegram: 'Telegram',
+        github: 'GitHub',
+        linkedin: 'LinkedIn',
+      },
+      skills: [
+        {
+          label: 'სტეკი',
+          items: [
+            'Go, TypeScript, JavaScript, Python',
+            'React, Node.js, Django',
+            'PostgreSQL, MongoDB, ClickHouse, Elasticsearch, Redis',
+            'Kafka, NATS, Docker, Kubernetes, CI/CD',
+          ],
+        },
+        {
+          label: 'ფოკუსი',
+          items: [
+            'მაღალდატვირთული ბექენდები, ივენთ-პაიპლაინები, დებაგინგი პროდაქშენში',
+            'AI-ხელსაწყოები ყოველდღიურ საინჟინრო სამუშაოში',
+          ],
+        },
+      ],
+      experience: [
+        {
+          company: 'Banyan AI',
+          role: 'Co-Founder & CTO',
+          from: 'ივლისი 2025',
+          to: 'აპრილი 2026',
+          fromISO: '2025-07',
+          toISO: '2026-04',
+          bullets: [
+            'შევქმენი AI-ავტომატიზაციის პროდუქტი მცირე ბიზნესისთვის: ბექენდ-სერვისები, LLM-ზე დაფუძნებული ვორქფლოუები, ინტეგრაციები ბიზნეს-ხელსაწყოებთან.',
+            'ვხელმძღვანელობდი ტექნიკურ მხარეს — არქიტექტურა, ინფრასტრუქტურა, დეპლოი — და ვწერდი კოდის დიდ ნაწილს.',
+          ],
+        },
+        {
+          company: 'Pulserio AG · LeadRebel',
+          role: 'Lead Software Engineer',
+          from: 'მაისი 2020',
+          to: 'აპრილი 2025',
+          fromISO: '2020-05',
+          toISO: '2025-04',
+          bullets: [
+            'შევქმენი LeadRebel, B2B SaaS ლიდების გენერაციისთვის, ნულიდან და ხუთი წელი ვხელმძღვანელობდი მის განვითარებას; მოგვიანებით პროდუქტი შეიძინა Leadinfo-მ.',
+            'ვფარავდი მთელ სტეკს: ტრექინგ-სკრიპტი, ივენთ-პაიპლაინი, ძებნა, ანალიტიკა, ადმინ-ხელსაწყოები, ინტეგრაციები, დეპლოი.',
+            'ივენთ-პაიპლაინი უმკლავდებოდა წუთში 1 მლნ-მდე ივენთს და დღეში ~100 ათას მონახულებას.',
+          ],
+        },
+        {
+          company: 'App3null GmbH',
+          role: 'ვები-დეველოპერი',
+          from: 'ოქტომბერი 2016',
+          to: 'მაისი 2020',
+          fromISO: '2016-10',
+          toISO: '2020-05',
+          bullets: [
+            'ვავითარებდი შეკვეთების მართვის პლატფორმის ვებ-ნაწილს Volkswagen-ის კონტრაქტორისთვის, რომელიც გადაიზარდა მრავალკომპანიან SaaS-ად.',
+            'ვპასუხობდი ძირითად ბიზნეს-ლოგიკაზე: შეკვეთების ატვირთვა, განაწილება, ძებნა, სტატუსების თვალყურის დევნება, კონტრაქტორების ვორქფლოუები.',
+          ],
+        },
+        {
+          company: 'Business Software Consulting',
+          role: '.NET დეველოპერი',
+          from: 'დეკემბერი 2011',
+          to: 'სექტემბერი 2016',
+          fromISO: '2011-12',
+          toISO: '2016-09',
+          bullets: [
+            'შევქმენი POS-სისტემა საცალო ვაჭრობისა და რესტორნებისთვის — მოთხოვნებიდან დანერგვამდე და მხარდაჭერამდე.',
+            'ვმუშაობდი ERP-სა და ინტეგრაციის ხელსაწყოებზე კლიენტებისთვის, მათ შორის SOLO / Bank of Georgia და Tegeta Motors.',
+          ],
+        },
+      ],
+      openTo: [
+        'Senior Full-stack / Backend / Product Engineer',
+        'Founding engineer',
+        'დისტანციურად · B2B ან შტატში',
+      ],
+      languages: [
+        { name: 'რუსული', level: 'მშობლიური' },
+        { name: 'ქართული', level: 'თავისუფლად' },
+        { name: 'ინგლისური', level: 'C1' },
+      ],
+      education: [
+        {
+          school: 'საქართველოს ტექნიკური უნივერსიტეტი',
+          field: 'პროგრამირება',
           year: '2014',
         },
       ],

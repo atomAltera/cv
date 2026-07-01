@@ -7,16 +7,16 @@ interface Props {
 const { groups } = Astro.props;
 ---
 
-<div class="skills">
+<div class="skillset">
   {
     groups.map((g) => (
-      <div class="skill-group">
-        <span class="skill-group-label">{g.label}</span>
-        <span class="skill-group-items">
+      <div class="skillset-group">
+        <h3 class="skillset-label">{g.label}</h3>
+        <ul class="skillset-list">
           {g.items.map((it) => (
-            <span class="skill-line">{it}</span>
+            <li>{it}</li>
           ))}
-        </span>
+        </ul>
       </div>
     ))
   }

@@ -65,9 +65,9 @@ a:hover {
 /* ---- Header ---- */
 .head {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: flex-start;
-  gap: 1.5rem;
+  gap: 1.25rem;
   margin-bottom: var(--space);
 }
 
@@ -98,11 +98,9 @@ a:hover {
 }
 
 .head-actions {
-  flex: none;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding-top: 0.5rem;
+  gap: 0.75rem;
 }
 
 .action {
@@ -128,7 +126,9 @@ a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.4rem;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
 }
 
 .action-icon svg {
@@ -137,15 +137,42 @@ a:hover {
 
 .lang {
   flex: none;
+  display: inline-flex;
+  align-items: stretch;
+  height: 2rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
   font-size: var(--fs-label);
   font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.lang a,
+.lang-current {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 0.6rem;
+  line-height: 1;
+}
+
+.lang > * + * {
+  border-left: 1px solid var(--line);
+}
+
+.lang a {
   color: var(--muted);
 }
 
-.lang:hover {
+.lang a:hover {
   color: var(--accent);
+  background: #f0f0f0;
+  text-decoration: none;
+}
+
+.lang-current {
+  background: var(--ink);
+  color: var(--bg);
 }
 
 /* ---- Summary ---- */
@@ -177,20 +204,11 @@ a:hover {
 
 /* ---- Experience ---- */
 .exp {
-  display: grid;
-  grid-template-columns: 9rem 1fr;
-  gap: 0 1.5rem;
   margin-bottom: 2.25rem;
 }
 
 .exp:last-child {
   margin-bottom: 0;
-}
-
-.exp-period {
-  font-size: var(--fs-small);
-  color: var(--muted);
-  padding-top: 0.15rem;
 }
 
 .exp-role {
@@ -200,58 +218,92 @@ a:hover {
 }
 
 .exp-company {
-  font-weight: 400;
+  margin: 0.1rem 0 0;
+  font-weight: 500;
+}
+
+.exp-period {
+  font-size: var(--fs-small);
   color: var(--muted);
+  margin: 0.15rem 0 0;
 }
 
 .exp-points {
   list-style: none;
-  margin: 0.4rem 0 0.7rem;
+  margin: 0.6rem 0 0;
   padding: 0;
   color: #2a2a2a;
 }
 
 .exp-points li {
   position: relative;
-  padding-left: 1rem;
+  padding-left: 1.1rem;
   margin-bottom: 0.25rem;
 }
 
 .exp-points li::before {
-  content: '—';
+  content: '•';
   position: absolute;
-  left: 0;
+  left: 0.15rem;
   color: var(--faint);
 }
 
-/* ---- Skills (grouped) ---- */
-.skills {
+/* ---- Skills ---- */
+.skillset {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 1.3rem;
 }
 
-.skill-group {
+.skillset-label {
+  font-size: var(--fs-body);
+  font-weight: 600;
+  margin: 0;
+}
+
+.skillset-list {
+  list-style: none;
+  margin: 0.4rem 0 0;
+  padding: 0;
+  color: #2a2a2a;
+}
+
+.skillset-list li {
+  position: relative;
+  padding-left: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.skillset-list li:last-child {
+  margin-bottom: 0;
+}
+
+.skillset-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0.15rem;
+  color: var(--faint);
+}
+
+/* ---- Languages (name / level pairs) ---- */
+.langs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.lang-row {
   display: grid;
   grid-template-columns: 9rem 1fr;
   gap: 1.5rem;
 }
 
-.skill-group-label {
-  font-size: var(--fs-small);
+.lang-name {
+  font-weight: 500;
+}
+
+.lang-level {
   color: var(--muted);
-}
-
-.skill-group-items {
-  color: var(--ink);
-}
-
-.skill-line {
-  display: block;
-}
-
-.skill-line + .skill-line {
-  margin-top: 0.2rem;
 }
 
 /* ---- Tags (skills + stacks) ---- */
@@ -311,15 +363,10 @@ a:hover {
 
 /* ---- Responsive ---- */
 @media (max-width: 33rem) {
-  .exp,
-  .skill-group,
+  .lang-row,
   .contacts li {
     grid-template-columns: 1fr;
     gap: 0.25rem;
-  }
-
-  .exp-period {
-    padding-top: 0;
   }
 }
 

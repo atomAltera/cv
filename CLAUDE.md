@@ -1,14 +1,22 @@
 # CLAUDE.md
 
 Personal CV site for Konstantin Alikhanov. Astro (static, no UI framework),
-bilingual EN/RU, deployed on Cloudflare Pages (auto-deploys from `master`).
+trilingual EN/RU/KA (English, Russian, Georgian), deployed on Cloudflare Pages
+(auto-deploys from `master`).
 
 ## Content is data-driven
 
 All CV content lives in **`src/data/cv.ts`** as a single typed object with
-`locales.en` and `locales.ru`. Edit copy there — never hardcode text in
-`.astro` components or pages. Both languages must stay in sync: when you change
-one locale's facts (roles, dates, metrics, skills, contacts), change the other.
+`locales.en`, `locales.ru`, `locales.ka` (and matching `meta.en/ru/ka`). Edit
+copy there — never hardcode text in `.astro` components or pages. All three
+languages must stay in sync: when you change one locale's facts (roles, dates,
+metrics, skills, contacts), change the others. In RU/KA keep technology names,
+company names, and English role titles as-is; translate only the prose.
+
+Adding a language means: a `meta.<code>` + `locales.<code>` entry, a
+`src/pages/<code>/index.astro` page (passing `lang="<code>"` to `<CV>`), a new
+item in the `languages` list in `CV.astro` (drives the switcher), and an
+`hreflang` entry in `Base.astro`.
 
 ## Keep README.md in sync
 
@@ -22,8 +30,11 @@ update `README.md` in the same commit so they never drift.
 - `src/components/` — `CV.astro` (page body), `Section`, `Experience`, `Skills`,
   `Contact` (base64 contact obfuscation + client-side decode)
 - `src/layouts/Base.astro` — `<head>`, SEO/OG, canonical, hreflang
-- `src/pages/index.astro` (EN) and `src/pages/ru/index.astro` (RU)
-- `src/styles/global.css` — design tokens, layout, print styles
+- `src/pages/index.astro` (EN), `src/pages/ru/index.astro` (RU),
+  `src/pages/ka/index.astro` (KA)
+- `src/styles/global.css` — design tokens, layout, print styles. Experience and
+  Skills use a stacked, ATS-friendly block (role/label heading → company/dates →
+  `•` bullet list); dates are wrapped in `<time datetime>`. Keep it that way.
 - `astro.config.mjs` — `site` (cv.nuclight.org) drives canonical/hreflang/OG/sitemap
 
 ## Commands
