@@ -17,15 +17,17 @@ Tbilisi, Georgia · Remote preferred · [Email](mailto:atomaltera@gmail.com) ·
 
 ## Skills
 
-Most of my work is in Go and TypeScript, with Python and JavaScript where they
-fit. On the backend I lean on PostgreSQL, MongoDB, ClickHouse, Elasticsearch,
-and Redis, wire services together with Kafka or NATS, and ship through Docker,
-Kubernetes, and CI/CD. On the frontend it is mostly React and Node.js, with some
-Django in the older projects.
+Go and TypeScript are my main languages day to day, with the rest of the stack
+chosen to fit the problem. Most of my work is high-load backends — event
+pipelines, search, analytics — together with the frontend and the infrastructure
+to run it.
 
-I am most at home with high-load backends, event pipelines, and the kind of
-debugging that only shows up under real production traffic. These days AI tools
-have become a regular part of how I work day to day.
+I am most at home with the kind of debugging that only shows up under real
+production traffic, and lately AI tools have become a regular part of how I work.
+
+`Go` · `TypeScript` · `JavaScript` · `Python` · `React` · `Node.js` ·
+`PostgreSQL` · `MongoDB` · `ClickHouse` · `Elasticsearch` · `Redis` · `Kafka` ·
+`NATS` · `Docker` · `Kubernetes` · `CI/CD`
 
 ## Experience
 

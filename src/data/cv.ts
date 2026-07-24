@@ -50,6 +50,7 @@ export interface LocalizedCV {
   labels: SectionLabels;
   contactLabels: ContactLabels;
   skills: string[]; // prose paragraphs, not lists
+  skillBadges: string[]; // concrete tech names, rendered as scannable badges
   experience: ExperienceItem[];
   openTo: string[];
   languages: LanguageItem[];
@@ -74,6 +75,27 @@ export interface CV {
   meta: { en: Meta; ru: Meta; ka: Meta };
   locales: { en: LocalizedCV; ru: LocalizedCV; ka: LocalizedCV };
 }
+
+// Concrete technologies, shown as scannable badges. Language-neutral, so the
+// same list is reused across all locales — edit here to keep them in sync.
+const stack: string[] = [
+  'Go',
+  'TypeScript',
+  'JavaScript',
+  'Python',
+  'React',
+  'Node.js',
+  'PostgreSQL',
+  'MongoDB',
+  'ClickHouse',
+  'Elasticsearch',
+  'Redis',
+  'Kafka',
+  'NATS',
+  'Docker',
+  'Kubernetes',
+  'CI/CD',
+];
 
 export const cv: CV = {
   contact: {
@@ -127,9 +149,10 @@ export const cv: CV = {
         linkedin: 'LinkedIn',
       },
       skills: [
-        'Most of my work is in Go and TypeScript, with Python and JavaScript where they fit. On the backend I lean on PostgreSQL, MongoDB, ClickHouse, Elasticsearch, and Redis, wire services together with Kafka or NATS, and ship through Docker, Kubernetes, and CI/CD. On the frontend it is mostly React and Node.js, with some Django in the older projects.',
-        'I am most at home with high-load backends, event pipelines, and the kind of debugging that only shows up under real production traffic. These days AI tools have become a regular part of how I work day to day.',
+        'Go and TypeScript are my main languages day to day, with the rest of the stack chosen to fit the problem. Most of my work is high-load backends — event pipelines, search, analytics — together with the frontend and the infrastructure to run it.',
+        'I am most at home with the kind of debugging that only shows up under real production traffic, and lately AI tools have become a regular part of how I work.',
       ],
+      skillBadges: stack,
       experience: [
         {
           company: 'Banyan AI',
@@ -215,9 +238,10 @@ export const cv: CV = {
         linkedin: 'LinkedIn',
       },
       skills: [
-        'В основном работаю на Go и TypeScript, где уместно — на Python и JavaScript. На бэкенде опираюсь на PostgreSQL, MongoDB, ClickHouse, Elasticsearch и Redis, связываю сервисы через Kafka или NATS и выкатываю через Docker, Kubernetes и CI/CD. На фронтенде — в основном React и Node.js, в старых проектах встречается Django.',
-        'Увереннее всего чувствую себя с высоконагруженными бэкендами, пайплайнами событий и отладкой, которая проявляется только на живом продакшен-трафике. В последнее время AI-инструменты стали обычной частью моей повседневной работы.',
+        'Go и TypeScript — мои основные языки в повседневной работе, остальной стек подбираю под задачу. В основном занимаюсь высоконагруженными бэкендами — пайплайны событий, поиск, аналитика — вместе с фронтендом и инфраструктурой вокруг них.',
+        'Увереннее всего чувствую себя с отладкой, которая проявляется только на живом продакшен-трафике, а в последнее время AI-инструменты стали обычной частью моей работы.',
       ],
+      skillBadges: stack,
       experience: [
         {
           company: 'Banyan AI',
@@ -303,9 +327,10 @@ export const cv: CV = {
         linkedin: 'LinkedIn',
       },
       skills: [
-        'ძირითადად ვმუშაობ Go-სა და TypeScript-ზე, საჭიროების შემთხვევაში — Python-სა და JavaScript-ზეც. ბექენდზე ვეყრდნობი PostgreSQL, MongoDB, ClickHouse, Elasticsearch და Redis-ს, სერვისებს ერთმანეთს ვუკავშირებ Kafka-თი ან NATS-ით, ხოლო დეპლოისთვის ვიყენებ Docker-ს, Kubernetes-სა და CI/CD-ს. ფრონტენდზე ძირითადად React და Node.js, ძველ პროექტებში კი Django.',
-        'ყველაზე კომფორტულად ვგრძნობ თავს მაღალდატვირთულ ბექენდებთან, ივენთ-პაიპლაინებთან და იმ დებაგინგთან, რომელიც მხოლოდ ცოცხალ პროდაქშენ-ტრაფიკზე ვლინდება. ბოლო დროს AI-ხელსაწყოები ჩემი ყოველდღიური მუშაობის ჩვეულებრივ ნაწილად იქცა.',
+        'Go და TypeScript ჩემი ძირითადი ენებია ყოველდღიურ მუშაობაში, დანარჩენ სტეკს კი ამოცანის მიხედვით ვარჩევ. ძირითადად ვმუშაობ მაღალდატვირთულ ბექენდებზე — ივენთ-პაიპლაინები, ძებნა, ანალიტიკა — ფრონტენდსა და მათ გარშემო არსებულ ინფრასტრუქტურასთან ერთად.',
+        'ყველაზე კომფორტულად ვგრძნობ თავს იმ დებაგინგთან, რომელიც მხოლოდ ცოცხალ პროდაქშენ-ტრაფიკზე ვლინდება, ბოლო დროს კი AI-ხელსაწყოები ჩემი მუშაობის ჩვეულებრივ ნაწილად იქცა.',
       ],
+      skillBadges: stack,
       experience: [
         {
           company: 'Banyan AI',

@@ -35,8 +35,10 @@ update `README.md` in the same commit so they never drift.
 - `src/styles/global.css` — design tokens, layout, print styles. Experience and
   Skills read as prose, not bullet lists: each role is a heading →
   company/dates → a `<p>` describing the work in full sentences; Skills is one
-  or two prose paragraphs. Dates are wrapped in `<time datetime>`. Keep the copy
-  as sentences — no `•` bullet lists.
+  or two prose paragraphs followed by a strip of `.skill-badge` pills for
+  quick tech scanning (the badge list is the shared `stack` const in `cv.ts`,
+  reused across all locales since tech names are language-neutral). Dates are
+  wrapped in `<time datetime>`. Keep the copy as sentences — no `•` bullet lists.
 - `astro.config.mjs` — `site` (cv.nuclight.org) drives canonical/hreflang/OG/sitemap
 
 ## Commands

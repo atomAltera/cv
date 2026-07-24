@@ -1,10 +1,20 @@
 ---
 interface Props {
   paragraphs: string[];
+  badges: string[];
 }
-const { paragraphs } = Astro.props;
+const { paragraphs, badges } = Astro.props;
 ---
 
 <div class="skills-prose">
   {paragraphs.map((p) => <p>{p}</p>)}
 </div>
+{
+  badges.length > 0 && (
+    <ul class="skill-badges" aria-label="Technologies">
+      {badges.map((b) => (
+        <li class="skill-badge">{b}</li>
+      ))}
+    </ul>
+  )
+}
