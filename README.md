@@ -17,45 +17,45 @@ Tbilisi, Georgia · Remote preferred · [Email](mailto:atomaltera@gmail.com) ·
 
 ## Skills
 
-**Stack**
+Most of my work is in Go and TypeScript, with Python and JavaScript where they
+fit. On the backend I lean on PostgreSQL, MongoDB, ClickHouse, Elasticsearch,
+and Redis, wire services together with Kafka or NATS, and ship through Docker,
+Kubernetes, and CI/CD. On the frontend it is mostly React and Node.js, with some
+Django in the older projects.
 
-- Go, TypeScript, JavaScript, Python
-- React, Node.js, Django
-- PostgreSQL, MongoDB, ClickHouse, Elasticsearch, Redis
-- Kafka, NATS, Docker, Kubernetes, CI/CD
-
-**Focus areas**
-
-- High-load backends, event pipelines, production debugging
-- AI tools in everyday engineering work
+I am most at home with high-load backends, event pipelines, and the kind of
+debugging that only shows up under real production traffic. These days AI tools
+have become a regular part of how I work day to day.
 
 ## Experience
 
 ### Banyan AI — Co-Founder & CTO · Jul 2025 – Apr 2026
-- Built an AI automation product for small businesses: backend services,
-  LLM-based workflows, integrations with business tools.
-- Ran the technical side — architecture, infrastructure, deployment — and wrote
-  most of the code.
+
+Co-founded an AI automation product for small businesses and ran the entire
+technical side — architecture, infrastructure, deployment — writing most of the
+code myself. The product pulled together backend services, LLM-based workflows,
+and integrations with the tools small businesses already use.
 
 ### Pulserio AG · LeadRebel — Lead Software Engineer · May 2020 – Apr 2025
-- Built LeadRebel, a B2B lead-generation SaaS, from scratch and led its
-  development for five years; later acquired by Leadinfo.
-- Covered the whole stack: tracking script, event pipeline, search, analytics,
-  admin tools, integrations, deployment.
-- The event pipeline handled up to 1M events/minute and ~100k tracked visitors
-  a day.
+
+Built LeadRebel, a B2B lead-generation SaaS, from scratch and led its
+development for five years, until it was acquired by Leadinfo. I worked across
+the whole stack — the tracking script, the event pipeline, search, analytics,
+admin tools, integrations, and deployment — with the pipeline handling up to a
+million events a minute and around 100,000 tracked visitors a day.
 
 ### App3null GmbH — Web Developer · Oct 2016 – May 2020
-- Developed the web part of an order-management platform for a Volkswagen
-  contractor that grew into a multi-company SaaS.
-- Owned the core business logic: order upload, dispatching, search, status
-  tracking, contractor workflows.
+
+Developed the web side of an order-management platform for a Volkswagen
+contractor that eventually grew into a multi-company SaaS. I owned the core
+business logic — order upload, dispatching, search, status tracking, and the
+contractor workflows around it.
 
 ### Business Software Consulting — .NET Developer · Dec 2011 – Sep 2016
-- Built a POS system for retail and restaurants, from requirements to rollout
-  and support.
-- Worked on ERP and integration tools for clients including SOLO / Bank of
-  Georgia and Tegeta Motors.
+
+Built a point-of-sale system for retail and restaurants end to end, from
+gathering requirements through rollout and support, and worked on ERP and
+integration tools for clients such as SOLO / Bank of Georgia and Tegeta Motors.
 
 ## Languages
 

@@ -13,7 +13,5 @@ const { item } = Astro.props;
   <p class="exp-period">
     <time datetime={item.fromISO}>{item.from}</time> — <time datetime={item.toISO}>{item.to}</time>
   </p>
-  <ul class="exp-points">
-    {item.bullets.map((b) => <li>{b}</li>)}
-  </ul>
+  <p class="exp-summary">{item.description}</p>
 </article>

@@ -9,18 +9,13 @@ export interface ExperienceItem {
   to: string; // localized display, e.g. "Apr 2025"
   fromISO: string; // machine-readable, e.g. "2020-05"
   toISO: string; // machine-readable, e.g. "2025-04"
-  bullets: string[];
+  description: string; // prose paragraph, not a bullet list
 }
 
 export interface EducationItem {
   school: string;
   field: string;
   year: string;
-}
-
-export interface SkillGroup {
-  label: string;
-  items: string[]; // each rendered on its own line
 }
 
 export interface LanguageItem {
@@ -54,7 +49,7 @@ export interface LocalizedCV {
   summary: string;
   labels: SectionLabels;
   contactLabels: ContactLabels;
-  skills: SkillGroup[];
+  skills: string[]; // prose paragraphs, not lists
   experience: ExperienceItem[];
   openTo: string[];
   languages: LanguageItem[];
@@ -132,22 +127,8 @@ export const cv: CV = {
         linkedin: 'LinkedIn',
       },
       skills: [
-        {
-          label: 'Stack',
-          items: [
-            'Go, TypeScript, JavaScript, Python',
-            'React, Node.js, Django',
-            'PostgreSQL, MongoDB, ClickHouse, Elasticsearch, Redis',
-            'Kafka, NATS, Docker, Kubernetes, CI/CD',
-          ],
-        },
-        {
-          label: 'Focus areas',
-          items: [
-            'High-load backends, event pipelines, production debugging',
-            'AI tools in everyday engineering work',
-          ],
-        },
+        'Most of my work is in Go and TypeScript, with Python and JavaScript where they fit. On the backend I lean on PostgreSQL, MongoDB, ClickHouse, Elasticsearch, and Redis, wire services together with Kafka or NATS, and ship through Docker, Kubernetes, and CI/CD. On the frontend it is mostly React and Node.js, with some Django in the older projects.',
+        'I am most at home with high-load backends, event pipelines, and the kind of debugging that only shows up under real production traffic. These days AI tools have become a regular part of how I work day to day.',
       ],
       experience: [
         {
@@ -157,10 +138,8 @@ export const cv: CV = {
           to: 'Apr 2026',
           fromISO: '2025-07',
           toISO: '2026-04',
-          bullets: [
-            'Built an AI automation product for small businesses: backend services, LLM-based workflows, integrations with business tools.',
-            'Ran the technical side — architecture, infrastructure, deployment — and wrote most of the code.',
-          ],
+          description:
+            'Co-founded an AI automation product for small businesses and ran the entire technical side — architecture, infrastructure, deployment — writing most of the code myself. The product pulled together backend services, LLM-based workflows, and integrations with the tools small businesses already use.',
         },
         {
           company: 'Pulserio AG · LeadRebel',
@@ -169,11 +148,8 @@ export const cv: CV = {
           to: 'Apr 2025',
           fromISO: '2020-05',
           toISO: '2025-04',
-          bullets: [
-            'Built LeadRebel, a B2B lead-generation SaaS, from scratch and led its development for five years; later acquired by Leadinfo.',
-            'Covered the whole stack: tracking script, event pipeline, search, analytics, admin tools, integrations, deployment.',
-            'The event pipeline handled up to 1M events/minute and ~100k tracked visitors a day.',
-          ],
+          description:
+            'Built LeadRebel, a B2B lead-generation SaaS, from scratch and led its development for five years, until it was acquired by Leadinfo. I worked across the whole stack — the tracking script, the event pipeline, search, analytics, admin tools, integrations, and deployment — with the pipeline handling up to a million events a minute and around 100,000 tracked visitors a day.',
         },
         {
           company: 'App3null GmbH',
@@ -182,10 +158,8 @@ export const cv: CV = {
           to: 'May 2020',
           fromISO: '2016-10',
           toISO: '2020-05',
-          bullets: [
-            'Developed the web part of an order-management platform for a Volkswagen contractor that grew into a multi-company SaaS.',
-            'Owned the core business logic: order upload, dispatching, search, status tracking, contractor workflows.',
-          ],
+          description:
+            'Developed the web side of an order-management platform for a Volkswagen contractor that eventually grew into a multi-company SaaS. I owned the core business logic — order upload, dispatching, search, status tracking, and the contractor workflows around it.',
         },
         {
           company: 'Business Software Consulting',
@@ -194,10 +168,8 @@ export const cv: CV = {
           to: 'Sep 2016',
           fromISO: '2011-12',
           toISO: '2016-09',
-          bullets: [
-            'Built a POS system for retail and restaurants, from requirements to rollout and support.',
-            'Worked on ERP and integration tools for clients including SOLO / Bank of Georgia and Tegeta Motors.',
-          ],
+          description:
+            'Built a point-of-sale system for retail and restaurants end to end, from gathering requirements through rollout and support, and worked on ERP and integration tools for clients such as SOLO / Bank of Georgia and Tegeta Motors.',
         },
       ],
       openTo: [
@@ -243,22 +215,8 @@ export const cv: CV = {
         linkedin: 'LinkedIn',
       },
       skills: [
-        {
-          label: 'Стек',
-          items: [
-            'Go, TypeScript, JavaScript, Python',
-            'React, Node.js, Django',
-            'PostgreSQL, MongoDB, ClickHouse, Elasticsearch, Redis',
-            'Kafka, NATS, Docker, Kubernetes, CI/CD',
-          ],
-        },
-        {
-          label: 'Специализация',
-          items: [
-            'Высоконагруженные бэкенды, пайплайны событий, отладка в продакшене',
-            'AI-инструменты в ежедневной работе',
-          ],
-        },
+        'В основном работаю на Go и TypeScript, где уместно — на Python и JavaScript. На бэкенде опираюсь на PostgreSQL, MongoDB, ClickHouse, Elasticsearch и Redis, связываю сервисы через Kafka или NATS и выкатываю через Docker, Kubernetes и CI/CD. На фронтенде — в основном React и Node.js, в старых проектах встречается Django.',
+        'Увереннее всего чувствую себя с высоконагруженными бэкендами, пайплайнами событий и отладкой, которая проявляется только на живом продакшен-трафике. В последнее время AI-инструменты стали обычной частью моей повседневной работы.',
       ],
       experience: [
         {
@@ -268,10 +226,8 @@ export const cv: CV = {
           to: 'Апрель 2026',
           fromISO: '2025-07',
           toISO: '2026-04',
-          bullets: [
-            'Делал продукт AI-автоматизации для малого бизнеса: бэкенд-сервисы, сценарии на основе LLM, интеграции с бизнес-инструментами.',
-            'Отвечал за техническую сторону — архитектуру, инфраструктуру, деплой — и писал большую часть кода.',
-          ],
+          description:
+            'Стал сооснователем продукта для AI-автоматизации малого бизнеса и вёл всю техническую часть — архитектуру, инфраструктуру, деплой, — написав большую часть кода. Продукт связывал бэкенд-сервисы, сценарии на основе LLM и интеграции с привычными для бизнеса инструментами.',
         },
         {
           company: 'Pulserio AG · LeadRebel',
@@ -280,11 +236,8 @@ export const cv: CV = {
           to: 'Апрель 2025',
           fromISO: '2020-05',
           toISO: '2025-04',
-          bullets: [
-            'Построил LeadRebel, B2B SaaS для генерации лидов, с нуля и пять лет руководил его разработкой; позже продукт купила Leadinfo.',
-            'Закрывал весь стек: скрипт трекинга, пайплайн событий, поиск, аналитику, админку, интеграции, деплой.',
-            'Пайплайн событий держал до 1 млн событий в минуту и ~100 тыс. посетителей в день.',
-          ],
+          description:
+            'С нуля построил LeadRebel — B2B SaaS для генерации лидов — и пять лет вёл его разработку, пока продукт не купила Leadinfo. Закрывал весь стек: скрипт трекинга, пайплайн событий, поиск, аналитику, админку, интеграции и деплой. Пайплайн держал до миллиона событий в минуту и около 100 тысяч отслеживаемых посетителей в день.',
         },
         {
           company: 'App3null GmbH',
@@ -293,10 +246,8 @@ export const cv: CV = {
           to: 'Май 2020',
           fromISO: '2016-10',
           toISO: '2020-05',
-          bullets: [
-            'Разрабатывал веб-часть платформы управления заказами для подрядчика Volkswagen, которая выросла в SaaS для нескольких компаний.',
-            'Отвечал за основную бизнес-логику: загрузку заказов, распределение, поиск, статусы, работу подрядчиков.',
-          ],
+          description:
+            'Разрабатывал веб-часть платформы управления заказами для подрядчика Volkswagen, которая со временем выросла в SaaS для нескольких компаний. Отвечал за основную бизнес-логику — загрузку заказов, распределение, поиск, отслеживание статусов и рабочие процессы подрядчиков.',
         },
         {
           company: 'Business Software Consulting',
@@ -305,10 +256,8 @@ export const cv: CV = {
           to: 'Сентябрь 2016',
           fromISO: '2011-12',
           toISO: '2016-09',
-          bullets: [
-            'Построил POS-систему для розницы и ресторанов — от требований до внедрения и поддержки.',
-            'Разрабатывал ERP и интеграционные инструменты для клиентов, среди которых SOLO / Bank of Georgia и Tegeta Motors.',
-          ],
+          description:
+            'С нуля сделал POS-систему для розницы и ресторанов — от сбора требований до внедрения и поддержки. Параллельно работал над ERP и интеграционными инструментами для клиентов, среди которых SOLO / Bank of Georgia и Tegeta Motors.',
         },
       ],
       openTo: [
@@ -354,22 +303,8 @@ export const cv: CV = {
         linkedin: 'LinkedIn',
       },
       skills: [
-        {
-          label: 'სტეკი',
-          items: [
-            'Go, TypeScript, JavaScript, Python',
-            'React, Node.js, Django',
-            'PostgreSQL, MongoDB, ClickHouse, Elasticsearch, Redis',
-            'Kafka, NATS, Docker, Kubernetes, CI/CD',
-          ],
-        },
-        {
-          label: 'ფოკუსი',
-          items: [
-            'მაღალდატვირთული ბექენდები, ივენთ-პაიპლაინები, დებაგინგი პროდაქშენში',
-            'AI-ხელსაწყოები ყოველდღიურ საინჟინრო სამუშაოში',
-          ],
-        },
+        'ძირითადად ვმუშაობ Go-სა და TypeScript-ზე, საჭიროების შემთხვევაში — Python-სა და JavaScript-ზეც. ბექენდზე ვეყრდნობი PostgreSQL, MongoDB, ClickHouse, Elasticsearch და Redis-ს, სერვისებს ერთმანეთს ვუკავშირებ Kafka-თი ან NATS-ით, ხოლო დეპლოისთვის ვიყენებ Docker-ს, Kubernetes-სა და CI/CD-ს. ფრონტენდზე ძირითადად React და Node.js, ძველ პროექტებში კი Django.',
+        'ყველაზე კომფორტულად ვგრძნობ თავს მაღალდატვირთულ ბექენდებთან, ივენთ-პაიპლაინებთან და იმ დებაგინგთან, რომელიც მხოლოდ ცოცხალ პროდაქშენ-ტრაფიკზე ვლინდება. ბოლო დროს AI-ხელსაწყოები ჩემი ყოველდღიური მუშაობის ჩვეულებრივ ნაწილად იქცა.',
       ],
       experience: [
         {
@@ -379,10 +314,8 @@ export const cv: CV = {
           to: 'აპრილი 2026',
           fromISO: '2025-07',
           toISO: '2026-04',
-          bullets: [
-            'შევქმენი AI-ავტომატიზაციის პროდუქტი მცირე ბიზნესისთვის: ბექენდ-სერვისები, LLM-ზე დაფუძნებული ვორქფლოუები, ინტეგრაციები ბიზნეს-ხელსაწყოებთან.',
-            'ვხელმძღვანელობდი ტექნიკურ მხარეს — არქიტექტურა, ინფრასტრუქტურა, დეპლოი — და ვწერდი კოდის დიდ ნაწილს.',
-          ],
+          description:
+            'თანადამფუძნებელი ვიყავი მცირე ბიზნესისთვის განკუთვნილი AI-ავტომატიზაციის პროდუქტისა და ვხელმძღვანელობდი მთელ ტექნიკურ მხარეს — არქიტექტურა, ინფრასტრუქტურა, დეპლოი — და ვწერდი კოდის დიდ ნაწილს. პროდუქტი აერთიანებდა ბექენდ-სერვისებს, LLM-ზე დაფუძნებულ ვორქფლოუებსა და ინტეგრაციებს ბიზნესის ჩვეულ ხელსაწყოებთან.',
         },
         {
           company: 'Pulserio AG · LeadRebel',
@@ -391,11 +324,8 @@ export const cv: CV = {
           to: 'აპრილი 2025',
           fromISO: '2020-05',
           toISO: '2025-04',
-          bullets: [
-            'შევქმენი LeadRebel, B2B SaaS ლიდების გენერაციისთვის, ნულიდან და ხუთი წელი ვხელმძღვანელობდი მის განვითარებას; მოგვიანებით პროდუქტი შეიძინა Leadinfo-მ.',
-            'ვფარავდი მთელ სტეკს: ტრექინგ-სკრიპტი, ივენთ-პაიპლაინი, ძებნა, ანალიტიკა, ადმინ-ხელსაწყოები, ინტეგრაციები, დეპლოი.',
-            'ივენთ-პაიპლაინი უმკლავდებოდა წუთში 1 მლნ-მდე ივენთს და დღეში ~100 ათას მონახულებას.',
-          ],
+          description:
+            'ნულიდან შევქმენი LeadRebel — B2B SaaS ლიდების გენერაციისთვის — და ხუთი წელი ვხელმძღვანელობდი მის განვითარებას, სანამ პროდუქტს Leadinfo შეიძენდა. ვფარავდი მთელ სტეკს: ტრექინგ-სკრიპტი, ივენთ-პაიპლაინი, ძებნა, ანალიტიკა, ადმინ-ხელსაწყოები, ინტეგრაციები და დეპლოი. პაიპლაინი უმკლავდებოდა წუთში მილიონამდე ივენთს და დღეში დაახლოებით 100 ათას მონახულებას.',
         },
         {
           company: 'App3null GmbH',
@@ -404,10 +334,8 @@ export const cv: CV = {
           to: 'მაისი 2020',
           fromISO: '2016-10',
           toISO: '2020-05',
-          bullets: [
-            'ვავითარებდი შეკვეთების მართვის პლატფორმის ვებ-ნაწილს Volkswagen-ის კონტრაქტორისთვის, რომელიც გადაიზარდა მრავალკომპანიან SaaS-ად.',
-            'ვპასუხობდი ძირითად ბიზნეს-ლოგიკაზე: შეკვეთების ატვირთვა, განაწილება, ძებნა, სტატუსების თვალყურის დევნება, კონტრაქტორების ვორქფლოუები.',
-          ],
+          description:
+            'ვავითარებდი შეკვეთების მართვის პლატფორმის ვებ-ნაწილს Volkswagen-ის კონტრაქტორისთვის, რომელიც დროთა განმავლობაში მრავალკომპანიან SaaS-ად გადაიზარდა. პასუხისმგებელი ვიყავი ძირითად ბიზნეს-ლოგიკაზე — შეკვეთების ატვირთვა, განაწილება, ძებნა, სტატუსების თვალყურის დევნება და კონტრაქტორების ვორქფლოუები.',
         },
         {
           company: 'Business Software Consulting',
@@ -416,10 +344,8 @@ export const cv: CV = {
           to: 'სექტემბერი 2016',
           fromISO: '2011-12',
           toISO: '2016-09',
-          bullets: [
-            'შევქმენი POS-სისტემა საცალო ვაჭრობისა და რესტორნებისთვის — მოთხოვნებიდან დანერგვამდე და მხარდაჭერამდე.',
-            'ვმუშაობდი ERP-სა და ინტეგრაციის ხელსაწყოებზე კლიენტებისთვის, მათ შორის SOLO / Bank of Georgia და Tegeta Motors.',
-          ],
+          description:
+            'ნულიდან შევქმენი POS-სისტემა საცალო ვაჭრობისა და რესტორნებისთვის — მოთხოვნების შეგროვებიდან დანერგვამდე და მხარდაჭერამდე. პარალელურად ვმუშაობდი ERP-სა და ინტეგრაციის ხელსაწყოებზე კლიენტებისთვის, მათ შორის SOLO / Bank of Georgia და Tegeta Motors.',
         },
       ],
       openTo: [

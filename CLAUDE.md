@@ -33,8 +33,10 @@ update `README.md` in the same commit so they never drift.
 - `src/pages/index.astro` (EN), `src/pages/ru/index.astro` (RU),
   `src/pages/ka/index.astro` (KA)
 - `src/styles/global.css` — design tokens, layout, print styles. Experience and
-  Skills use a stacked, ATS-friendly block (role/label heading → company/dates →
-  `•` bullet list); dates are wrapped in `<time datetime>`. Keep it that way.
+  Skills read as prose, not bullet lists: each role is a heading →
+  company/dates → a `<p>` describing the work in full sentences; Skills is one
+  or two prose paragraphs. Dates are wrapped in `<time datetime>`. Keep the copy
+  as sentences — no `•` bullet lists.
 - `astro.config.mjs` — `site` (cv.nuclight.org) drives canonical/hreflang/OG/sitemap
 
 ## Commands
